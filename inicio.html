@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tsiakhe | Streaming Premium</title>
+    <style>
+        /* --- CONFIGURACIÓN GENERAL Y ESTILO --- */
+        :root {
+            --primary: #00d4ff; /* Azul Tsiakhe */
+            --secondary: #7b2cbf; /* Morado elegante */
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --netflix-red: #e50914;
+            --hbo-purple: #991ee5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #243b55 0%, var(--bg-dark) 70%);
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        header h1 span {
+            color: var(--primary);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.5);
+        }
+
+        /* --- PRODUCTOS --- */
+        .products-section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--primary);
+        }
+
+        .features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .features li::before {
+            content: "✔";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: white;
+        }
+
+        /* Colores Específicos por Marca */
+        .netflix-btn { background-color: var(--netflix-red); }
+        .netflix-btn:hover { background-color: #b20710; }
+
+        .hbo-btn { background: linear-gradient(45deg, #002be7, #991ee5); }
+        .hbo-btn:hover { opacity: 0.9; }
+
+        .disney-btn { background: linear-gradient(45deg, #113ccf, #00d4ff); }
+        .disney-btn:hover { opacity: 0.9; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #0b1120;
+            color: #64748b;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SS.CC Tsiakhe</div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#contacto">Soporte</a>
+        </div>
+    </nav>
+
+    <header id="inicio">
+        <h1>Tu Entretenimiento,<br><span>Sin Límites</span></h1>
+        <p>Servicios y Soluciones Computacionales Tsiakhe te ofrece las mejores plataformas de streaming al mejor precio. Activación inmediata y garantizada.</p>
+        <a href="#catalogo" class="cta-btn">Ver Planes Disponibles</a>
+    </header>
+
+    <section class="products-section" id="catalogo">
+        <h2 class="section-title">Elige tu Plataforma</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon" style="color: var(--netflix-red);">N</div>
+                <h3>Netflix Premium</h3>
+                <p>4 Pantallas UHD</p>
+                <div class="price">$99<span>/mes</span></div>
+                <ul class="features">
+                    <li>Calidad 4K Ultra HD</li>
+                    <li>Sin anuncios</li>
+                    <li>Descargas habilitadas</li>
+                    <li>Garantía de 30 días</li>
+                </ul>
+                <button class="buy-btn netflix-btn" onclick="comprar('Netflix Premium', 99)">ADQUIRIR AHORA</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon" style="color: var(--hbo-purple);">HBO</div>
+                <h3>Max Standard</h3>
+                <p>3 Pantallas Simultáneas</p>
+                <div class="price">$79<span>/mes</span></div>
+                <ul class="features">
+                    <li>Contenido Warner & Discovery</li>
+                    <li>Champions League en vivo</li>
+                    <li>Resolución 4K</li>
+                    <li>Soporte 24/7</li>
+                </ul>
+                <button class="buy-btn hbo-btn" onclick="comprar('HBO Max', 79)">ADQUIRIR AHORA</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon" style="color: #00d4ff;">D+</div>
+                <h3>Disney+ Bundle</h3>
+                <p>Combo con Star+</p>
+                <div class="price">$120<span>/mes</span></div>
+                <ul class="features">
+                    <li>Deportes ESPN en vivo</li>
+                    <li>Películas y Series Disney</li>
+                    <li>Control Parental</li>
+                    <li>Renovación automática</li>
+                </ul>
+                <button class="buy-btn disney-btn" onclick="comprar('Disney+ Combo', 120)">ADQUIRIR AHORA</button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>&copy; 2025 Servicios y Soluciones Computacionales Tsiakhe.</p>
+        <p>Soporte técnico y Ventas: contacto@tsiakhe.com</p>
+    </footer>
+
+    <script>
+        function comprar(producto, precio) {
+            // TU NÚMERO DE WHATSAPP AQUÍ (ejemplo: 7571478626)
+            const telefono = "5217571478626"; 
+            
+            // Mensaje automático
+            const mensaje = `Hola Tsiakhe, me interesa comprar una cuenta de *${producto}* por el precio de *$${precio}*. ¿Me envías los datos de pago?`;
+            
+            // Crear la URL de WhatsApp
+            const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+            
+            // Abrir en nueva pestaña
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
